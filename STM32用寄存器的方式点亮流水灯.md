@@ -10,7 +10,8 @@
 
 该图为 STM32 时钟树，展示各外设总线时钟来源，GPIO 挂载在 APB2 总线上。
 
-![屏幕截图 2026-09-22 002058](STM32用寄存器的方式点亮流水灯.assets/屏幕截图 2026-09-22 002058.png)
+<img width="1737" height="1135" alt="屏幕截图 2026-09-22 002058" src="https://github.com/user-attachments/assets/0ddfedcc-da4c-4e67-ae55-4c2d0d690d85" />
+
 
 ### 2、配置时钟
 
@@ -20,13 +21,15 @@
 
 ①查找到时钟使能端口的地址
 
-![屏幕截图 2026-09-22 000108](STM32用寄存器的方式点亮流水灯.assets/屏幕截图 2026-09-22 000108.png)
+<img width="1602" height="580" alt="屏幕截图 2026-09-22 000108" src="https://github.com/user-attachments/assets/4774ead7-b78e-4235-ad29-75d46f6a9474" />
+
 
 
 
 ②查找到APB2寄存器的偏移地址以及对应的端口所在的位置
 
-![屏幕截图 2026-09-21 235014](STM32用寄存器的方式点亮流水灯.assets/屏幕截图 2026-09-21 235014.png)
+<img width="1983" height="807" alt="屏幕截图 2026-09-21 235014" src="https://github.com/user-attachments/assets/e865f502-39be-4e8f-9b45-f564dbd0b568" />
+
 
 本次实验需要 GPIOA、GPIOB，所以设置以下代码来开启时钟：
 
@@ -38,7 +41,8 @@ RCC_APB2ENR |= (1<<2) | (1<<3);
 
 ①GPIOx_CRL 寄存器负责管理 Pin0~Pin7 的 IO 口模式。每一个引脚要占 4 个 bit 位，一部分设置功能，一部分设置输出速度。
 
-![屏幕截图 2026-09-22 002831](STM32用寄存器的方式点亮流水灯.assets/屏幕截图 2026-09-22 002831.png)
+<img width="1701" height="1346" alt="屏幕截图 2026-09-22 002831" src="https://github.com/user-attachments/assets/4c2b0ff7-72bb-46c5-9075-c168635a3825" />
+
 
 引脚模式配置：
 
@@ -58,7 +62,8 @@ GPIOB_CRL |=  (0x01 << 4);
 
 ②GPIOx_ODR 输出寄存器，控制引脚输出高低电平，实现 LED 亮灭。
 
-![屏幕截图 2026-09-22 003906](STM32用寄存器的方式点亮流水灯.assets/屏幕截图 2026-09-22 003906.png)
+<img width="1632" height="747" alt="屏幕截图 2026-09-22 003906" src="https://github.com/user-attachments/assets/f2492291-a3d1-421c-b4f3-2f11ba2d77ea" />
+
 
 系统上电后引脚状态不确定，所以初始化阶段把 PA5、PB0、PB1 全部置高电平，保证三个 LED 一开始处于熄灭状态：
 
