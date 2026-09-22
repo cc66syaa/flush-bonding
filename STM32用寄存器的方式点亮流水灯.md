@@ -232,6 +232,11 @@ int main(void)
 
 ## 四、开发板运行效果
 
+
+
+https://github.com/user-attachments/assets/0fc62cc5-c94c-4a89-8ed2-9c090f834c8f
+
+
 ![fc64ab62f6f230b402c785472e949ae7](STM32用寄存器的方式点亮流水灯.assets/fc64ab62f6f230b402c785472e949ae7.jpg)
 
 ## 五、实验总结
